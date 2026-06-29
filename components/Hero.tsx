@@ -76,7 +76,6 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 overflow-hidden pt-16"
     >
-      {/* Subtle grid background */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -85,12 +84,10 @@ export default function Hero() {
           backgroundSize: '60px 60px',
         }}
       />
-      {/* Glow */}
       <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)' }} />
 
       <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center w-full max-w-7xl">
-        {/* Left: text */}
         <div>
           <motion.h1
             {...fadeUp(0.2)}
@@ -130,7 +127,24 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          <motion.div {...fadeUp(0.65)} className="flex flex-wrap items-center gap-4 mt-12">
+          {/* Mobile-only: scrolling tech pills */}
+          <motion.div
+            {...fadeUp(0.65)}
+            className="md:hidden mt-8 -mx-6 overflow-hidden"
+          >
+            <div className="flex gap-2 px-6 overflow-x-auto pb-1 scrollbar-none" style={{ scrollbarWidth: 'none' }}>
+              {nodes.map((node) => (
+                <span
+                  key={node.label}
+                  className="flex-shrink-0 text-xs font-mono border border-[#2a2a2a] bg-[#111] text-[#888] px-3 py-1.5 rounded-lg"
+                >
+                  {node.label}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div {...fadeUp(0.65)} className="hidden md:flex flex-wrap items-center gap-4 mt-12">
             <a
               href="mailto:izzy@wavecode.dev"
               className="text-sm text-[#999] hover:text-white transition-colors"
@@ -149,9 +163,28 @@ export default function Hero() {
             <span className="w-px h-4 bg-[#2a2a2a]" />
             <span className="text-sm text-[#999]">Aguadilla, PR / Remote</span>
           </motion.div>
+
+          {/* Mobile contact links */}
+          <motion.div {...fadeUp(0.75)} className="md:hidden flex items-center gap-4 mt-8">
+            <a
+              href="mailto:izzy@wavecode.dev"
+              className="text-sm text-[#999] hover:text-white transition-colors"
+            >
+              izzy@wavecode.dev
+            </a>
+            <span className="w-px h-4 bg-[#2a2a2a]" />
+            <a
+              href="https://www.linkedin.com/in/israel-romero-917a54219/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-[#999] hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
+          </motion.div>
         </div>
 
-        {/* Right: tech graph */}
+        {/* Desktop: tech graph */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -162,7 +195,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll hint */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

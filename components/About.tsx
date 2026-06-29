@@ -3,31 +3,26 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] },
-})
+import { Badge } from '@/components/ui/badge'
 
 export default function About() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="about" ref={ref} className="py-20 px-6 md:px-12 lg:px-24">
+    <section id="about" ref={ref} className="py-12 md:py-20 px-6 md:px-12 lg:px-24">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-10"
+          className="flex items-center gap-3 mb-8 md:mb-10"
         >
           <span className="text-xs font-mono text-[#888] tracking-widest uppercase">01 — About</span>
           <div className="flex-1 h-px bg-[#1f1f1f]" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -48,7 +43,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-5"
           >
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">
               I build things that{' '}
@@ -73,9 +68,7 @@ export default function About() {
 
             <div className="flex flex-wrap gap-2 pt-2">
               {['TypeScript', 'React', 'React Native', 'Node.js', 'AWS', 'PostgreSQL'].map((tag) => (
-                <span key={tag} className="text-xs font-mono border border-[#1f1f1f] text-[#999] px-3 py-1.5 rounded-full">
-                  {tag}
-                </span>
+                <Badge key={tag}>{tag}</Badge>
               ))}
             </div>
           </motion.div>

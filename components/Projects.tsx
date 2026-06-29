@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { Badge } from '@/components/ui/badge'
 
 const projects = [
   {
@@ -31,19 +32,19 @@ export default function Projects() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="projects" ref={ref} className="py-20 px-6 md:px-12 lg:px-24 border-t border-[#1f1f1f]">
+    <section id="projects" ref={ref} className="py-12 md:py-20 px-6 md:px-12 lg:px-24 border-t border-[#1f1f1f]">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-10"
+          className="flex items-center gap-3 mb-8 md:mb-10"
         >
           <span className="text-xs font-mono text-[#888] tracking-widest uppercase">04 — Projects</span>
           <div className="flex-1 h-px bg-[#1f1f1f]" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {projects.map((project, i) => (
             <motion.a
               key={project.name}
@@ -53,24 +54,24 @@ export default function Projects() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="relative border border-[#1f1f1f] rounded-xl p-8 hover:border-[#333] transition-all group overflow-hidden block cursor-pointer"
+              className="relative border border-[#1f1f1f] rounded-xl p-5 md:p-8 hover:border-[#333] transition-all group overflow-hidden block cursor-pointer"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
               <div className="relative z-10">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold">{project.name}</h3>
-                  <span className="text-[#777] group-hover:text-white transition-colors">
+                <div className="flex items-start justify-between mb-3 md:mb-4">
+                  <h3 className="text-lg md:text-xl font-bold">{project.name}</h3>
+                  <span className="text-[#777] group-hover:text-white transition-colors flex-shrink-0 ml-2">
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                       <path d="M5 13L13 5M8 5h5v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </span>
                 </div>
 
-                <p className="text-xs font-mono text-[#888] mb-4">{project.role}</p>
-                <p className="text-sm text-[#aaa] leading-relaxed mb-6">{project.description}</p>
+                <p className="text-xs font-mono text-[#888] mb-3 md:mb-4">{project.role}</p>
+                <p className="text-sm text-[#aaa] leading-relaxed mb-4 md:mb-6">{project.description}</p>
 
-                <div className="grid grid-cols-2 gap-2 mb-6">
+                <div className="grid grid-cols-2 gap-2 mb-4 md:mb-6">
                   {project.highlights.map((h) => (
                     <div key={h} className="flex items-center gap-2 text-xs text-[#999]">
                       <span className="w-1 h-1 rounded-full bg-[#777] flex-shrink-0" />
@@ -81,9 +82,7 @@ export default function Projects() {
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="text-xs font-mono border border-[#1f1f1f] text-[#888] px-2 py-1 rounded-md group-hover:border-[#2a2a2a] transition-colors">
-                      {tag}
-                    </span>
+                    <Badge key={tag} className="group-hover:border-[#2a2a2a]">{tag}</Badge>
                   ))}
                 </div>
               </div>

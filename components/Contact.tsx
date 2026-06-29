@@ -8,7 +8,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="contact" ref={ref} className="py-20 px-6 md:px-12 lg:px-24 border-t border-[#1f1f1f]">
+    <section id="contact" ref={ref} className="py-12 md:py-20 px-6 md:px-12 lg:px-24 border-t border-[#1f1f1f]">
       <div className="max-w-3xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -17,12 +17,12 @@ export default function Contact() {
         >
           <span className="text-xs font-mono text-[#888] tracking-widest uppercase">05 — Contact</span>
 
-          <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold mt-6 mb-4 md:mb-6 leading-tight">
             Let&apos;s build something{' '}
             <span className="text-[#888]">together.</span>
           </h2>
 
-          <p className="text-[#aaa] text-lg leading-relaxed mb-12 max-w-xl mx-auto">
+          <p className="text-[#aaa] text-base md:text-lg leading-relaxed mb-8 md:mb-12 max-w-xl mx-auto">
             I&apos;m currently open to new roles. Whether you have a position in mind
             or just want to chat, my inbox is open.
           </p>
@@ -31,7 +31,7 @@ export default function Contact() {
             href="mailto:izzy@wavecode.dev"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-3 bg-white text-black font-semibold px-8 py-4 rounded-xl text-lg hover:bg-[#e8e8e8] transition-colors"
+            className="inline-flex items-center gap-3 bg-white text-black font-semibold px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg hover:bg-[#e8e8e8] transition-colors"
           >
             izzy@wavecode.dev
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -39,7 +39,7 @@ export default function Contact() {
             </svg>
           </motion.a>
 
-          <div className="flex items-center justify-center gap-8 mt-16">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mt-10 md:mt-16">
             <a
               href="https://www.linkedin.com/in/israel-romero-917a54219/"
               target="_blank"
@@ -77,7 +77,7 @@ export default function Contact() {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="mt-24 pt-8 border-t border-[#1f1f1f] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#777] font-mono max-w-5xl mx-auto"
+        className="mt-16 md:mt-24 pt-8 border-t border-[#1f1f1f] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#777] font-mono max-w-5xl mx-auto"
       >
         <span>© {new Date().getFullYear()} Israel Romero</span>
         <span>wavecode.dev</span>
