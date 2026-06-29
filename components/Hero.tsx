@@ -105,7 +105,7 @@ export default function Hero() {
             — end-to-end, from architecture to App Store.
           </motion.p>
 
-          <motion.div {...fadeUp(0.5)} className="flex flex-wrap gap-4">
+          <motion.div {...fadeUp(0.5)} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
               href="#experience"
               className="inline-flex items-center gap-2 bg-white text-black font-medium px-6 py-3 rounded-lg hover:bg-[#e0e0e0] transition-colors text-sm"
