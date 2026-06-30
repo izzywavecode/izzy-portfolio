@@ -74,7 +74,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 overflow-hidden pt-16"
+      className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 overflow-x-hidden pt-16"
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -88,7 +88,7 @@ export default function Hero() {
         style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)' }} />
 
       <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center w-full max-w-7xl">
-        <div>
+        <div className="min-w-0">
           <motion.h1
             {...fadeUp(0.2)}
             className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none mb-6"
