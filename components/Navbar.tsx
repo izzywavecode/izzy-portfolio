@@ -2,13 +2,15 @@
 
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import { Logo } from '@/components/Logo'
+import { projectInquiryHref } from '@/lib/site'
 
+// Root-relative so the links also work from /privacy.
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#products', label: 'Products' },
+  { href: '/#founder', label: 'Founder' },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -33,11 +35,11 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 h-16 flex items-center justify-between">
-          <a href="#home" className="text-sm font-mono text-[#aaa] hover:text-white transition-colors">
-            izzy<span className="text-[#777]">@</span>wavecode.dev
+          <a href="/" aria-label="WaveCode home" className="hover:opacity-80 transition-opacity">
+            <Logo />
           </a>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav aria-label="Main" className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -50,16 +52,17 @@ export default function Navbar() {
           </nav>
 
           <a
-            href="mailto:izzy@wavecode.dev"
+            href={projectInquiryHref}
             className="hidden md:inline-flex text-sm border border-[#1f1f1f] text-[#aaa] hover:text-white hover:border-[#444] px-4 py-2 rounded-lg transition-colors"
           >
-            Get in touch
+            Start a project
           </a>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden flex flex-col gap-[5px] p-2 -mr-2"
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
           >
             <motion.span
               animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
@@ -89,7 +92,7 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 bg-[#0a0a0a]/98 backdrop-blur-lg pt-16 flex flex-col md:hidden"
           >
-            <nav className="flex flex-col items-center justify-center flex-1 gap-6 pb-16">
+            <nav aria-label="Main" className="flex flex-col items-center justify-center flex-1 gap-6 pb-16">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.href}
@@ -104,13 +107,13 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <motion.a
-                href="mailto:izzy@wavecode.dev"
+                href={projectInquiryHref}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.35 }}
                 className="mt-4 text-sm border border-[#333] text-[#aaa] px-6 py-3 rounded-lg hover:text-white hover:border-[#555] transition-colors"
               >
-                Get in touch
+                Start a project
               </motion.a>
             </nav>
           </motion.div>

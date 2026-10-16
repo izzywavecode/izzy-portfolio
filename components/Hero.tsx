@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { projectInquiryHref, site } from '@/lib/site'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -89,41 +90,43 @@ export default function Hero() {
 
       <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center w-full max-w-7xl">
         <div className="min-w-0">
+          <motion.p
+            {...fadeUp(0.1)}
+            className="text-xs font-mono text-[#888] tracking-widest uppercase mb-6"
+          >
+            Independent software studio · Puerto Rico
+          </motion.p>
+
           <motion.h1
             {...fadeUp(0.2)}
             className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none mb-6"
           >
-            Israel{' '}
-            <span className="text-[#aaa]">Romero</span>
+            Software built{' '}
+            <span className="text-[#aaa]">with intention.</span>
           </motion.h1>
 
           <motion.p
             {...fadeUp(0.35)}
             className="text-lg md:text-xl text-[#aaa] leading-relaxed mb-10"
           >
-            Senior Full Stack Engineer. I build production web and mobile apps
-            — end-to-end, from architecture to App Store.
+            {site.description}
           </motion.p>
 
           <motion.div {...fadeUp(0.5)} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
-              href="#experience"
+              href={projectInquiryHref}
               className="inline-flex items-center gap-2 bg-white text-black font-medium px-6 py-3 rounded-lg hover:bg-[#e0e0e0] transition-colors text-sm"
             >
-              View my work
+              Start a project
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
             <a
-              href="/Israel_Romero_Resume_2026.pdf"
-              download
+              href="#products"
               className="inline-flex items-center gap-2 border border-[#333] text-white font-medium px-6 py-3 rounded-lg hover:border-[#555] hover:bg-[#111] transition-colors text-sm"
             >
-              Download resume
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 3v7M5 8l3 3 3-3M3 13h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              Explore WaveCode Studio
             </a>
           </motion.div>
 
@@ -144,43 +147,15 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          <motion.div {...fadeUp(0.65)} className="hidden md:flex flex-wrap items-center gap-4 mt-12">
+          <motion.div {...fadeUp(0.65)} className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-8 md:mt-12">
             <a
-              href="mailto:izzy@wavecode.dev"
+              href={`mailto:${site.email}`}
               className="text-sm text-[#999] hover:text-white transition-colors"
             >
-              izzy@wavecode.dev
+              {site.email}
             </a>
             <span className="w-px h-4 bg-[#2a2a2a]" />
-            <a
-              href="https://www.linkedin.com/in/israel-romero-917a54219/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-[#999] hover:text-white transition-colors"
-            >
-              LinkedIn
-            </a>
-            <span className="w-px h-4 bg-[#2a2a2a]" />
-            <span className="text-sm text-[#999]">Aguadilla, PR / Remote</span>
-          </motion.div>
-
-          {/* Mobile contact links */}
-          <motion.div {...fadeUp(0.75)} className="md:hidden flex items-center gap-4 mt-8">
-            <a
-              href="mailto:izzy@wavecode.dev"
-              className="text-sm text-[#999] hover:text-white transition-colors"
-            >
-              izzy@wavecode.dev
-            </a>
-            <span className="w-px h-4 bg-[#2a2a2a]" />
-            <a
-              href="https://www.linkedin.com/in/israel-romero-917a54219/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-[#999] hover:text-white transition-colors"
-            >
-              LinkedIn
-            </a>
+            <span className="text-sm text-[#999]">{site.location.label}</span>
           </motion.div>
         </div>
 
@@ -199,7 +174,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
       >
         <span className="text-xs text-[#777] tracking-widest uppercase">Scroll</span>
         <motion.div

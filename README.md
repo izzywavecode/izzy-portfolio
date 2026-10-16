@@ -1,12 +1,11 @@
-# wavecode.dev — Israel Romero's Portfolio
+# wavecode.dev
 
-Personal portfolio site built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
+The website of WaveCode LLC, an independent software development studio in Aguadilla, Puerto Rico. Built with Next.js 14 (App Router), Tailwind CSS and Framer Motion, and deployed on Vercel from `main`.
 
-## Getting started
+- Company details shared across pages: `lib/site.ts`
+- Products shown on the site: `lib/products.ts`
 
 ```bash
 npm install
 npm run dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000).
