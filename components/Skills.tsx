@@ -37,7 +37,7 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="skills" ref={ref} className="py-12 md:py-20 px-6 md:px-12 lg:px-24 border-t border-[#1f1f1f]">
+    <section id="stack" ref={ref} className="py-12 md:py-20 px-6 md:px-12 lg:px-24 border-t border-[#1f1f1f] scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, x: -10 }}
@@ -45,7 +45,7 @@ export default function Skills() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-3 mb-8 md:mb-10"
         >
-          <span className="text-xs font-mono text-[#888] tracking-widest uppercase">03 — Skills</span>
+          <span className="text-xs font-mono text-[#888] tracking-widest uppercase">05 — Stack</span>
           <div className="flex-1 h-px bg-[#1f1f1f]" />
         </motion.div>
 
